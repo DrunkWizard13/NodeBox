@@ -1,0 +1,17 @@
+1.	Partie Serveur Individuel
+a.	Serveur http
+b.	Création de log pour tout ce qui est supprimé/ajouté au dossier personnel
+c.	Lecture seulement des dossiers des autres membres connectés
+d.	Chercher s’il y a une connexion internet
+i.	Si oui : Demander log de chaque serveur connecté et faire ce qui est nouveau sur le log
+ii.	Si non : Après 5 minutes, recommencer la recherche. On continue à créer le log pour cet utilisateur s’il y a des modifications dans son dossier.
+2.	Partie Connexion entre serveurs par Internet
+a.	On doit rechercher les utilisateurs qui ont installé le serveur. (Écrire les IP à rechercher serait plus facile)
+b.	Le serveur va faire un GET du log de tous les utilisateurs connectés et, ensuite fera les changements qui ont été fait sur les autres serveurs, donc en faisait un GET des fichiers manquant et en supprimant les fichiers qui ne sont plus sur les autres serveurs.
+3.	Partie Programmation (Ce qu’on ne doit pas oublier)
+a.	Les fichiers log ne doivent pas être relus en entier chaque fois, car des fichiers pourraient être supprimés s’ils ont le même nom. On utilisera la date et l’heure de la dernière lecture du log pour commencer à lire les lignes après cette date.
+b.	Les dossiers des autres utilisateurs ne doivent pas être modifiés par l’utilisateur actuel, donc on ne doit que pouvoir télécharger les fichiers des autres. On pourra ajouter seulement pour notre dossier.
+c.	Nicolas pourra nous faire une interface qui, pour ajouter un utilisateur de synchronisation, pourra ajouter des IP amis, donc nous n’aurons pas besoin de spécifier les IP dans notre code Node.js, car c’est IP seront ajouté manuellement après.
+d.	L’utilisateur doit détecter si internet est connecté
+i.	Si Oui : Connexion aux autres utilisateurs comme supposer.
+ii.	Si Non : Continuer le log des fichiers et continuer à détecter s’il y a une connexion internet.
